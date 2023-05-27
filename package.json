@@ -1,0 +1,35 @@
+{
+  "name": "update-versions",
+  "displayName": "Update Versions",
+  "version": "1.0.0",
+  "publisher": "YourPublisherName",
+  "engines": {
+    "vscode": "^1.0.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./out/main.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.updateVersions",
+        "title": "Update Versions"
+      }
+    ]
+  },
+  "activationEvents": [
+    "onCommand:extension.updateVersions"
+  ],
+  "scripts": {
+    "start": "node ./extension.js",
+    "vscode:prepublish": "npm run -S esbuild-base -- --minify",
+    "esbuild-base": "esbuild ./extension.js --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
+    "esbuild": "npm run -S esbuild-base -- --sourcemap",
+    "esbuild-watch": "npm run -S esbuild-base -- --sourcemap --watch",
+    "test-compile": "tsc -p ./"
+  },
+  "dependencies": {
+    "esbuild": "^0.17.19"
+  }
+}

@@ -1,0 +1,3 @@
+vsce package
+npm install -g yo generator-cod
+yo code
